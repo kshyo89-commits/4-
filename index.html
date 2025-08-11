@@ -4,21 +4,12 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>이상형 월드컵 — 4강 (클릭 선택)</title>
-  <meta name="description" content="이미지형 4강 토너먼트. 이미지를 클릭해서 우승자를 가려보세요!">
-  <meta property="og:title" content="이상형 월드컵 — 4강 (클릭 선택)">
-  <meta property="og:description" content="이미지형 4강 토너먼트. 이미지를 클릭해서 우승자를 가려보세요!">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="./images/1.webp">
-  <meta name="theme-color" content="#ffffff">
   <link rel="stylesheet" href="./style.css">
 </head>
 <body>
   <header class="header">
     <div class="wrap bar">
-      <div class="logo">
-        <div class="logo-badge">WC</div>
-        <span>이상형 월드컵</span>
-      </div>
+      <div class="logo"><div class="logo-badge">WC</div><span>이상형 월드컵</span></div>
       <div class="chip" id="roundChip">4강 진행중</div>
     </div>
   </header>
@@ -27,13 +18,11 @@
     <main class="main">
       <section class="board" id="board">
         <div class="round head">
-          <div class="title" id="title">
-            4강 — 매치 <span id="matchIdx">1</span>/<span id="matchTotal">2</span>
-          </div>
+          <div class="title" id="title">4강 — 매치 <span id="matchIdx">1</span>/<span id="matchTotal">2</span></div>
           <div class="meta">진행률 <span id="percent">0%</span></div>
         </div>
         <div class="progress"><i id="bar"></i></div>
-        <div class="versus" id="versus"></div>
+        <div class="versus" id="versus"></div>  <!-- JS가 여기 채움 -->
       </section>
 
       <section class="result" id="result" hidden>
@@ -47,13 +36,11 @@
 
       <footer class="footer">
         <div>© <span id="year"></span> Ideal Cup.</div>
-        <div>
-          <a href="#">개인정보처리방침</a> · <a href="#">이용약관</a>
-        </div>
+        <div><a href="#">개인정보처리방침</a> · <a href="#">이용약관</a></div>
       </footer>
     </main>
   </div>
 
-  <script src="./script.js"></script>
+  <script src="./script.js?v=3"></script>
 </body>
 </html>
