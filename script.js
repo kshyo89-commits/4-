@@ -1,4 +1,4 @@
-// 참가자 4명 (이미지 경로/이름)
+// 참가자 4명 (파일명/표시명)
 const ITEMS = [
   { id: 1, name: "Tralalero Tralala",    img: "images/1.webp" },
   { id: 2, name: "Bombardiro Crocodilo", img: "images/2.webp" },
@@ -8,23 +8,26 @@ const ITEMS = [
 
 const RoundNames = ["4강(준결승)", "결승"];
 
-const $versus   = document.getElementById('versus');
-const $board    = document.getElementById('board');
-const $result   = document.getElementById('result');
-const $winner   = document.getElementById('winner');
-const $roundChip= document.getElementById('roundChip');
-const $title    = document.getElementById('title');
-const $bar      = document.getElementById('bar');
-const $year     = document.getElementById('year') || document.createElement('span');
+// 엘리먼트
+const $versus    = document.getElementById('versus');
+const $board     = document.getElementById('board');
+const $result    = document.getElementById('result');
+const $winner    = document.getElementById('winner');
+const $roundChip = document.getElementById('roundChip');
+const $title     = document.getElementById('title');
+const $bar       = document.getElementById('bar');
+const $year      = document.getElementById('year') || document.createElement('span');
 if ($year) $year.textContent = new Date().getFullYear();
 
+// 유틸
 function shuffle(a){ a=a.slice(); for(let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; }
 function esc(s){ return s.replace(/[&<>'"]/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','\\'':'&#39;','"':'&quot;'}[c])); }
 
+// 상태
 let roundIndex=0, currentRound=[], nextRound=[], matchIndex=0;
 
+// 초기화
 function initTournament(){
-  // HTML에 미리 넣어둔 <img>들은 무시하고 JS로 그릴게요
   $versus.innerHTML = '';
   currentRound = shuffle(ITEMS);
   nextRound = [];
@@ -34,6 +37,7 @@ function initTournament(){
   renderMatch();
 }
 
+// UI 갱신
 function updateUI(){
   const pairs = Math.ceil(currentRound.length / 2);
   document.getElementById('matchTotal').textContent = String(pairs);
@@ -45,13 +49,14 @@ function updateUI(){
   $title.innerHTML = `${RoundNames[roundIndex]} — 매치 <span id="matchIdx">${Math.min(matchIndex+1,pairs)}</span>/<span id="matchTotal">${pairs}</span>`;
 }
 
+// 매치 렌더
 function renderMatch(){
   const i = matchIndex * 2;
   const a = currentRound[i];
   const b = currentRound[i+1];
 
   if(!a && nextRound.length>0){ return finishRound(); }
-  if(!b){ // 홀수 보호(부전승)
+  if(!b){ // 홀수일 때 부전승 처리
     nextRound.push(a);
     matchIndex++;
     updateUI();
@@ -64,6 +69,7 @@ function renderMatch(){
   updateUI();
 }
 
+// 카드 생성 (이미지 자체 클릭)
 function makeCard(item){
   const card = document.createElement('article');
   card.className = 'card';
@@ -72,11 +78,11 @@ function makeCard(item){
       <img src="${item.img}" alt="${esc(item.name)}" loading="eager" />
       <div class="label">${esc(item.name)}</div>
     </div>`;
-  // 이미지(카드) 자체 클릭으로 선택
   card.addEventListener('click', () => onPick(item));
   return card;
 }
 
+// 선택 처리
 function onPick(winner){
   nextRound.push(winner);
   const pairs = Math.ceil(currentRound.length / 2);
@@ -85,8 +91,9 @@ function onPick(winner){
   else renderMatch();
 }
 
+// 라운드 종료
 function finishRound(){
-  if (nextRound.length === 1) return showWinner(nextRound[0]);
+  if (nextRound.length === 1) return showWinner(nextRound[0]); // 우승
   currentRound = shuffle(nextRound);
   nextRound = [];
   matchIndex = 0;
@@ -94,13 +101,14 @@ function finishRound(){
   renderMatch();
 }
 
+// 우승자 표시
 function showWinner(item){
   $board.hidden = true;
   $result.hidden = false;
   $roundChip.textContent = '우승자 발표';
   $winner.innerHTML = `
     <div class="imgbox">
-      <img src="${item.img}" alt="${esc(item.name)}"/>
+      <img src="${item.img}" alt="${esc(item.name)}" />
       <div class="label">${esc(item.name)}</div>
     </div>`;
   document.getElementById('restartBtn').onclick = () => { $result.hidden=false; $board.hidden=false; initTournament(); };
@@ -108,6 +116,7 @@ function showWinner(item){
   setTimeout(()=>{ window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' }); }, 300);
 }
 
+// 공유
 async function shareResult(item){
   const url = location.href.split('#')[0];
   const text = `이상형 월드컵 우승: ${item.name}`;
