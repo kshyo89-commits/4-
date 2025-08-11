@@ -26,21 +26,15 @@
   <div class="wrap">
     <main class="main">
       <section class="board" id="board">
-  <div class="round head">
-    <div class="title">예선</div>
-  </div>
-
-  <!-- 여기서부터 이미지 -->
-  <img src="images/1.webp" alt="Image 1">
-  <img src="images/2.webp" alt="Image 2">
-  <img src="images/3.webp" alt="Image 3">
-  <img src="images/4.webp" alt="Image 4">
-  <!-- 여기까지 이미지 -->
-
-  <div class="progress">
-    <div id="bar">진행률 바</div>
-  </div>
-</section>
+        <div class="round head">
+          <div class="title" id="title">
+            4강 — 매치 <span id="matchIdx">1</span>/<span id="matchTotal">2</span>
+          </div>
+          <div class="meta">진행률 <span id="percent">0%</span></div>
+        </div>
+        <div class="progress"><i id="bar"></i></div>
+        <div class="versus" id="versus"></div>
+      </section>
 
       <section class="result" id="result" hidden>
         <h2 class="title">우승자</h2>
@@ -53,7 +47,9 @@
 
       <footer class="footer">
         <div>© <span id="year"></span> Ideal Cup.</div>
-        <div><a href="./privacy.html">개인정보처리방침</a> • <a href="./terms.html">이용약관</a></div>
+        <div>
+          <a href="#">개인정보처리방침</a> · <a href="#">이용약관</a>
+        </div>
       </footer>
     </main>
   </div>
