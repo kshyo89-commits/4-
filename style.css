@@ -33,3 +33,8 @@ body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,'Noto Sans KR'
 
 .footer{margin:20px 0 40px;color:var(--muted);font-size:13px;display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between}
 .footer a{color:inherit;text-decoration:none;border-bottom:1px dotted #cbd5e1}
+.board img {
+  width: 200px; /* 이미지 크기 조절 */
+  margin: 10px; /* 이미지 사이 간격 */
+  display: inline-block; /* 나란히 배치 */
+}
