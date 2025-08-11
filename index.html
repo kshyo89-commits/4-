@@ -1,47 +1,38 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>이상형 월드컵 — 4강</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이상형 월드컵</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="header">
-    <div class="wrap bar">
-      <div class="logo"><div class="logo-badge">WC</div><span>이상형 월드컵</span></div>
-      <div class="chip" id="roundChip">4강 진행중</div>
-    </div>
-  </header>
-
-  <div class="wrap">
-    <main class="main">
-      <section class="board" id="board">
-        <div class="head">
-          <div class="title" id="title">4강 — 매치 <span id="matchIdx">1</span>/<span id="matchTotal">2</span></div>
-          <div class="meta">진행률 <span id="percent">0%</span></div>
+    <header>
+        <h1 id="title"></h1>
+        <div id="barContainer">
+            <div id="bar"></div>
         </div>
-        <div class="progress"><i id="bar"></i></div>
-        <div class="versus" id="versus"></div>
-      </section>
+        <p><span id="percent">0</span>% 진행</p>
+    </header>
 
-      <!-- ⇣⇣⇣ 여기에 hidden 반드시 있어야 함 ⇣⇣⇣ -->
-      <section class="result" id="result" hidden>
-        <h2 class="title">우승자</h2>
-        <div class="winner" id="winner"></div>
-        <div class="actions">
-          <button class="btn" id="restartBtn">다시 하기</button>
-          <button class="btn ghost" id="shareBtn">결과 공유</button>
+    <main id="board">
+        <div class="item" id="versus">
+            <img id="leftImg" src="" alt="">
+            <span>VS</span>
+            <img id="rightImg" src="" alt="">
         </div>
-      </section>
-
-      <footer class="footer">
-        <div>© <span id="year"></span> Ideal Cup.</div>
-        <div><a href="#" style="color:inherit">개인정보처리방침</a> · <a href="#" style="color:inherit">이용약관</a></div>
-      </footer>
     </main>
-  </div>
 
-  <script src="script.js"></script>
+    <section id="result" hidden>
+        <h2>우승자</h2>
+        <img id="winner" src="" alt="">
+        <button onclick="initTournament()">다시 하기</button>
+    </section>
+
+    <footer>
+        <p>© Ideal Cup. <span id="year"></span></p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
