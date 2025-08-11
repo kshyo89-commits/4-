@@ -7,30 +7,28 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1 id="title"></h1>
-        <div id="barContainer">
-            <div id="bar"></div>
-        </div>
-        <p><span id="percent">0</span>% 진행</p>
-    </header>
+    <h1 id="title"></h1>
+    <div id="barContainer">
+        <div id="bar"></div>
+    </div>
+    <p id="percent">0% 진행</p>
 
-    <main id="board">
-        <div class="item" id="versus">
-            <img id="leftImg" src="" alt="">
-            <span>VS</span>
-            <img id="rightImg" src="" alt="">
+    <div id="board">
+        <div class="item">
+            <img id="leftImage" src="images/1.webp" alt="">
         </div>
-    </main>
+        <div id="versus">VS</div>
+        <div class="item">
+            <img id="rightImage" src="images/2.webp" alt="">
+        </div>
+    </div>
 
-    <section id="result" hidden>
-        <h2>우승자</h2>
-        <img id="winner" src="" alt="">
-        <button onclick="initTournament()">다시 하기</button>
-    </section>
+    <div id="result" hidden>
+        <h2 id="winner"></h2>
+    </div>
 
     <footer>
-        <p>© ZZILCO. <span id="year"></span></p>
+        <p>© ZZILCO. 2025</p>
     </footer>
 
     <script src="script.js"></script>
