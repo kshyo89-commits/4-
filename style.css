@@ -1,51 +1,161 @@
-:root{--bg:#0f1115;--card:#1a1d24;--text:#e5e7eb;--muted:#9ca3af;--brand:#ffb028;--brand-2:#ff7a00;--border:#2b3040;--shadow:0 10px 20px rgba(0,0,0,.35),0 2px 6px rgba(0,0,0,.25)}
-*{box-sizing:border-box}
-html,body{height:100%}
-body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,'Noto Sans KR',Arial;background:var(--bg);color:var(--text)}
-.wrap{max-width:1200px;margin:0 auto;padding:16px}
-
-/* 헤더 */
-.header{position:sticky;top:0;z-index:20;background:rgba(15,17,21,.8);backdrop-filter:saturate(1.1) blur(8px);border-bottom:1px solid var(--border)}
-.bar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 6px}
-.logo{display:flex;align-items:center;gap:10px;font-weight:800}
-.logo-badge{width:34px;height:34px;display:grid;place-items:center;border-radius:10px;background:linear-gradient(135deg,#5865f2,#3b82f6);color:#fff;box-shadow:var(--shadow)}
-.chip{display:inline-flex;align-items:center;gap:8px;font-size:12px;padding:6px 10px;border-radius:999px;background:#1f2430;color:#c7d2fe;border:1px solid #2b3350}
-
-/* 본문 */
-.main{display:grid;gap:16px;margin-top:16px}
-.round.head{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px}
-.title{font-size:clamp(18px,3vw,28px);font-weight:800}
-.meta{color:var(--muted);font-size:13px}
-.progress{height:8px;background:#232733;border-radius:999px;overflow:hidden}
-.progress>i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--brand),var(--brand-2));transition:width .35s ease}
-
-/* 매치 보드 */
-.versus{position:relative;display:grid;grid-template-columns:1fr;gap:18px;align-items:center}
-@media (min-width:900px){.versus{grid-template-columns:1fr 1fr}}
-.card{background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden;cursor:pointer;box-shadow:var(--shadow);transition:transform .15s ease}
-.card:hover{transform:translateY(-2px)}
-.imgbox{position:relative;aspect-ratio:16/9;background:#0b0d12}
-.imgbox img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.label{position:absolute;left:12px;bottom:12px;padding:8px 10px;color:#fff;font-weight:800;font-size:16px;text-shadow:0 2px 6px rgba(0,0,0,.6)}
-/* 가운데 VS 배지 */
-.vs-badge{display:none}
-@media (min-width:900px){
-  .vs-badge{display:block;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);padding:8px 14px;border-radius:14px;
-    background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#2b1a00;font-weight:900;font-size:32px;box-shadow:0 8px 24px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.35)}
+body {
+  margin: 0;
+  font-family: 'Noto Sans KR', sans-serif;
+  background-color: #121212;
+  color: #fff;
 }
 
-/* 결과 */
-.result{display:grid;gap:14px;text-align:center}
-.winner{display:grid;gap:8px;justify-items:center}
-.winner .imgbox{max-width:820px;margin:auto;border-radius:18px;overflow:hidden}
-.actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:center}
-.btn{cursor:pointer;border:1px solid #4a5568;background:#2a2f3e;color:#e5e7eb;padding:10px 14px;border-radius:10px;font-weight:700;font-size:14px;box-shadow:var(--shadow)}
-.ghost{background:#151821;color:#cbd5e1;border:1px solid #2b3040}
+.wrap {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+}
 
-/* 프리뷰(확대 보기: 첫 클릭) */
-.preview{position:fixed;inset:0;z-index:40;background:rgba(0,0,0,.85);display:none;align-items:center;justify-content:center}
-.preview.show{display:flex}
-.preview .frame{max-width:1000px;width:92vw}
-.preview .imgbox{aspect-ratio:16/9;border-radius:18px;overflow:hidden;background:#000}
-.preview .label{left:50%;transform:translateX(-50%);bottom:16px;text-shadow:0 6px 24px rgba(0,0,0,.7)}
-.preview .hint{margin-top:12px;text-align:center;color:#cbd5e1;font-size:14px}
+.header {
+  background: #1e1e1e;
+  padding: 10px 0;
+  border-bottom: 1px solid #333;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo-badge {
+  background: #007bff;
+  color: #fff;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.chip {
+  background: #333;
+  padding: 4px 8px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+}
+
+.main {
+  margin-top: 20px;
+}
+
+.round.head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.meta {
+  font-size: 0.85rem;
+}
+
+.progress {
+  background: #333;
+  height: 6px;
+  border-radius: 3px;
+  margin: 10px 0 20px;
+}
+
+.progress i {
+  display: block;
+  height: 100%;
+  background: #007bff;
+  width: 0%;
+  border-radius: 3px;
+}
+
+.versus {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.card {
+  flex: 1;
+  background: #1e1e1e;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: scale(1.03);
+}
+
+.card img {
+  width: 100%;
+  display: block;
+}
+
+.card .name {
+  padding: 10px;
+  text-align: center;
+  background: #222;
+  font-weight: bold;
+}
+
+.result {
+  text-align: center;
+}
+
+.winner img {
+  width: 200px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.actions {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.btn {
+  background: #007bff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+.btn.ghost {
+  background: transparent;
+  border: 1px solid #555;
+}
+
+/* 프리뷰 모달 */
+.preview-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.preview-overlay img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 8px;
+}
+
+.preview-overlay:empty {
+  display: none;
+}
