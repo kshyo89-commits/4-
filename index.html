@@ -7,30 +7,38 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1 id="title"></h1>
-    <div id="barContainer">
-        <div id="bar"></div>
-    </div>
-    <p id="percent">0% 진행</p>
-
-    <div id="board">
-        <div class="item">
-            <img id="leftImage" src="images/1.webp" alt="">
+    <div class="container">
+        <h1 id="round-title">4강(준결승) - 매치 1/2</h1>
+        <div class="progress-bar-container">
+            <div class="progress-bar" id="progress-bar"></div>
         </div>
-        <div id="versus">VS</div>
-        <div class="item">
-            <img id="rightImage" src="images/2.webp" alt="">
+        <p id="progress-text">0% 진행</p>
+        <div class="match">
+            <div class="choice" id="choice1">
+                <img id="img1" src="images/img1.jpg" alt="">
+            </div>
+            <div class="vs">VS</div>
+            <div class="choice" id="choice2">
+                <img id="img2" src="images/img2.jpg" alt="">
+            </div>
         </div>
-    </div>
+        <p class="copyright">© ZZILCO. 2025</p>
 
-    <div id="result" hidden>
-        <h2 id="winner"></h2>
+        <!-- 다시하기 버튼 -->
+        <button id="restart-btn" style="display:none;" onclick="restartTournament()">다시하기</button>
     </div>
-
-    <footer>
-        <p>© ZZILCO. 2025</p>
-    </footer>
 
     <script src="script.js"></script>
+    <script>
+        function restartTournament() {
+            location.reload();
+        }
+
+        // 예시: 토너먼트가 끝나면 버튼 표시
+        function showRestartButton() {
+            document.getElementById("restart-btn").style.display = "block";
+        }
+        // script.js에서 토너먼트 종료 시 showRestartButton() 호출하면 됨
+    </script>
 </body>
 </html>
