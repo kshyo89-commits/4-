@@ -1,4 +1,4 @@
-// 참가자 목록
+// Player List
 const players = [
     { name: "Shark Runner", img: "images/shark.png" },
     { name: "Cactus Elephant", img: "images/cactus-elephant.png" },
@@ -30,8 +30,8 @@ function startTournament() {
 
 function showMatch() {
     const matchesInRound = currentRound.length / 2;
-    roundTitle.innerText = `${currentRound.length === 2 ? "결승" : currentRound.length + "강"} - 매치 ${matchIndex + 1}/${matchesInRound}`;
-    progressText.innerText = `${Math.floor((matchIndex / matchesInRound) * 100)}% 진행`;
+    roundTitle.innerText = `${currentRound.length === 2 ? "Final" : currentRound.length + " Round"} - Match ${matchIndex + 1}/${matchesInRound}`;
+    progressText.innerText = `${Math.floor((matchIndex / matchesInRound) * 100)}% Progress`;
 
     const player1 = currentRound[matchIndex * 2];
     const player2 = currentRound[matchIndex * 2 + 1];
@@ -66,12 +66,12 @@ function selectWinner(winner) {
 
 function showWinner(winner) {
     document.getElementById("tournament").style.display = "none";
-    document.getElementById("winner-name").innerText = `우승자: ${winner.name}`;
+    document.getElementById("winner-name").innerText = `Winner: ${winner.name}`;
     document.getElementById("winner-image").src = winner.img;
     document.getElementById("winner-screen").style.display = "block";
 }
 
 document.getElementById("restart-btn").onclick = startTournament;
 
-// 시작
+// Start
 startTournament();
