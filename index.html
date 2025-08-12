@@ -3,42 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>이상형 월드컵</title>
+    <title>토너먼트</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <h1 id="round-title">4강(준결승) - 매치 1/2</h1>
+    <div id="tournament">
+        <h1 id="round-title"></h1>
+        <p id="progress-text"></p>
+        <div class="match">
+            <div class="player">
+                <img id="player1-img" src="" alt="">
+                <p id="player1-name"></p>
+            </div>
+            <span>VS</span>
+            <div class="player">
+                <img id="player2-img" src="" alt="">
+                <p id="player2-name"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 🏆 우승자 화면 -->
+    <div id="winner-screen" style="display:none;">
+        <h1 id="winner-name"></h1>
         <div class="progress-bar-container">
             <div class="progress-bar" id="progress-bar"></div>
         </div>
-        <p id="progress-text">0% 진행</p>
-        <div class="match">
-            <div class="choice" id="choice1">
-                <img id="img1" src="images/img1.jpg" alt="">
-            </div>
-            <div class="vs">VS</div>
-            <div class="choice" id="choice2">
-                <img id="img2" src="images/img2.jpg" alt="">
-            </div>
-        </div>
-        <p class="copyright">© ZZILCO. 2025</p>
+        <p>축하합니다!</p>
 
-        <!-- 다시하기 버튼 -->
-        <button id="restart-btn" style="display:none;" onclick="restartTournament()">다시하기</button>
+        <!-- 우승자 이미지 -->
+        <img id="winner-image" src="" alt="우승자">
+
+        <p class="copyright">© ZZILCO. 2025</p>
+        <button id="restart-btn">다시하기</button>
     </div>
 
     <script src="script.js"></script>
-    <script>
-        function restartTournament() {
-            location.reload();
-        }
-
-        // 예시: 토너먼트가 끝나면 버튼 표시
-        function showRestartButton() {
-            document.getElementById("restart-btn").style.display = "block";
-        }
-        // script.js에서 토너먼트 종료 시 showRestartButton() 호출하면 됨
-    </script>
 </body>
 </html>
