@@ -1,43 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tournament</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tournament</title>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-    <div id="tournament">
-        <h1 id="round-title"></h1>
-        <p id="progress-text"></p>
-        <div class="match">
-            <div class="player">
-                <img id="player1-img" src="" alt="">
-                <p id="player1-name"></p>
-            </div>
-            <span>VS</span>
-            <div class="player">
-                <img id="player2-img" src="" alt="">
-                <p id="player2-name"></p>
-            </div>
-        </div>
+  <div class="container" id="tournament">
+    <h1 id="round-title">Semifinal - Match 1/2</h1>
+    <div class="progress-bar-container">
+      <div class="progress-bar" id="progress-bar"></div>
+    </div>
+    <p id="progress-text">0% Progress</p>
+
+    <!-- Match Board -->
+    <div class="match">
+      <div class="player">
+        <img id="player1-img" src="" alt="">
+        <p id="player1-name"></p>
+      </div>
+
+      <span class="vs">VS</span>
+
+      <div class="player">
+        <img id="player2-img" src="" alt="">
+        <p id="player2-name"></p>
+      </div>
     </div>
 
-    <!-- 🏆 Winner Screen -->
-    <div id="winner-screen" style="display:none;">
-        <h1 id="winner-name"></h1>
-        <div class="progress-bar-container">
-            <div class="progress-bar" id="progress-bar"></div>
-        </div>
-        <p>Congratulations!</p>
+    <p class="copyright">© ZZILCO. 2025</p>
+  </div>
 
-        <!-- Winner Image -->
-        <img id="winner-image" src="" alt="Winner">
+  <!-- Winner Screen -->
+  <div id="winner-screen" style="display:none;">
+    <h1 id="winner-name"></h1>
+    <p>Congratulations!</p>
 
-        <p class="copyright">© ZZILCO. 2025</p>
-        <button id="restart-btn">Restart</button>
-    </div>
+    <!-- Winner Image -->
+    <img id="winner-image" src="" alt="Winner">
 
-    <script src="script.js"></script>
+    <button id="restart-btn">Restart</button>
+    <p class="copyright">© ZZILCO. 2025</p>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
